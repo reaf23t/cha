@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chaveiro Pátio Norte | Atendimento 24h em São Luís</title>
+    <meta name="description" content="Chaveiro profissional em São Luís/MA com atendimento 24 horas. Serviços residenciais, automotivos e comerciais.">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --preto: #121212;
+            --preto-claro: #1E1E1E;
+            --amarelo: #FFD700;
+            --amarelo-escuro: #FFC600;
+            --branco: #FFFFFF;
+            --cinza: #A0A0A0;
+            --cinza-escuro: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--preto);
+            color: var(--branco);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Estilizado */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            background-color: var(--amarelo);
+            color: var(--preto);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 22px;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: var(--branco);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+        }
+        
+        nav ul li a:hover, 
+        nav ul li a.active {
+            color: var(--amarelo);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--amarelo);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-btn i {
+            margin-right: 8px;
+        }
+        
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        /* Páginas/Sections */
+        .page {
+            min-height: 100vh;
+            padding: 120px 0 80px;
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--cinza);
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn i {
+            margin-right: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--amarelo);
+            color: var(--amarelo);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--amarelo);
+            color: var(--preto);
+        }
+        
+        .nav-btn {
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        /* About Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--cinza);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .feature-card {
+            background-color: var(--preto-claro);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--amarelo);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--amarelo);
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Services Section */
+        #servicos {
+            background-color: var(--preto-claro);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--cinza);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--preto);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--amarelo);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px auto 20px;
+            font-size: 32px;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .service-content {
+            padding: 0 30px 30px;
+            text-align: center;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--amarelo);
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: var(--cinza);
+            line-height: 1.7;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            min-width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            color: var(--amarelo);
+            margin-bottom: 5px;
+        }
+        
+        .contact-text p, 
+        .contact-text a {
+            color: var(--cinza);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--amarelo);
+        }
+        
+        /* Bairros Atendidos */
+        .neighborhoods {
+            margin-top: 60px;
+            padding: 40px;
+            background-color: var(--preto-claro);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .neighborhoods h3 {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .neighborhoods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
+        }
+        
+        .neighborhood-item {
+            background-color: var(--preto);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: var(--branco);
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .neighborhood-item:hover {
+            transform: translateY(-3px);
+            border-color: var(--amarelo);
+        }
+        
+        .neighborhoods p {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 600;
+            color: var(--amarelo);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--preto);
+            padding: 30px 0 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo-icon {
+            background: linear-gradient(135deg, var(--amarelo), var(--amarelo-escuro));
+            color: var(--preto);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+        }
+        
+        .footer-logo-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            background: linear-gradient(to right, var(--amarelo), #FFEE58);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-logo-text p {
+            font-size: 0.9rem;
+            color: var(--cinza);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .footer-social a {
+            color: var(--cinza);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            color: var(--amarelo);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            color: var(--cinza);
+            font-size: 0.9rem;
+        }
+        
+        /* Botão do WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 0;
+            }
+            
+            .logo-text {
+                font-size: 20px;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--branco);
+                font-size: 24px;
+                cursor: pointer;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .neighborhoods-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" onclick="showPage('home'); event.preventDefault();" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-key"></i>
+                </div>
+                <div class="logo-text">Chaveiro Pátio Norte</div>
+            </a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home'); event.preventDefault();" class="nav-btn active">Início</a></li>
+                    <li><a href="#" onclick="showPage('servicos'); event.preventDefault();" class="nav-btn">Serviços</a></li>
+                    <li><a href="#" onclick="showPage('contato'); event.preventDefault();" class="nav-btn">Contato</a></li>
+                </ul>
+            </nav>
+            
+            <a href="tel:+5598987020510" class="contact-btn">
+                <i class="fas fa-phone"></i> (98) 98702-0510
+            </a>
+        </div>
+    </header>
+
+    <!-- Página Início -->
+    <section id="home" class="page active">
+        <div class="container hero-content">
+            <h1><span>Chaveiro</span> Profissional em São Luís</h1>
+            <p>Atendimento 24 horas para emergências. Serviços de chaveiro residencial, automotivo e comercial com qualidade e agilidade.</p>
+            
+            <div class="hero-btns">
+                <a href="tel:+5598987020510" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> Ligar Agora
+                </a>
+                <a href="https://instagram.com/chaveiropationorte" target="_blank" class="btn btn-outline">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+            </div>
+            
+            <div class="nav-btn">
+                <a href="#" onclick="showPage('servicos'); event.preventDefault();" class="btn btn-primary">
+                    Ver Nossos Serviços <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página Serviços -->
+    <section id="servicos" class="page">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Oferecemos soluções completas em chaveiro para residências, comércios e veículos em São Luís e região metropolitana.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Residencial</h3>
+                        <p>Abertura de portas, troca de fechaduras, cópias de chaves e muito mais para sua casa.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Automotivo</h3>
+                        <p>Abertura de veículos, chaves codificadas, programação e conserto de ignição.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Comercial</h3>
+                        <p>Sistemas de segurança, fechaduras eletrônicas e controle de acesso para empresas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="nav-btn">
+                <a href="#" onclick="showPage('contato'); event.preventDefault();" class="btn btn-primary">
+                    Entre em Contato <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Página Contato -->
+    <section id="contato" class="page">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h2>Entre em Contato</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Telefone Principal</h3>
+                            <a href="tel:+5598987020510">(98) 98702-0510</a>
+                            <p>Atendimento 24 horas</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>WhatsApp</h3>
+                            <a href="https://wa.me/5598987020510" target="_blank">(98) 98702-0510</a>
+                            <p>Clique para conversar</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Instagram</h3>
+                            <a href="https://instagram.com/chaveiropationorte" target="_blank">@chaveiropationorte</a>
+                            <p>Siga-nos para dicas e novidades</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Área de Atendimento</h3>
+                            <p>São Luís - MA</p>
+                            <p>Região metropolitana completa</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h3>Horário de Funcionamento</h3>
+                            <p>24 horas por dia</p>
+                            <p>7 dias por semana</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="neighborhoods">
+                <h3>Bairros Atendidos em São Luís</h3>
+                <div class="neighborhoods-grid">
+                    <div class="neighborhood-item">Centro</div>
+                    <div class="neighborhood-item">Calhau</div>
+                    <div class="neighborhood-item">Renascença</div>
+                    <div class="neighborhood-item">Ponta d'Areia</div>
+                    <div class="neighborhood-item">São Francisco</div>
+                    <div class="neighborhood-item">Cohama</div>
+                    <div class="neighborhood-item">Turu</div>
+                    <div class="neighborhood-item">Olho d'Água</div>
+                    <div class="neighborhood-item">Jardim Eldorado</div>
+                    <div class="neighborhood-item">Vila Palmeira</div>
+                    <div class="neighborhood-item">Forquilha</div>
+                    <div class="neighborhood-item">Cohatrac</div>
+                    <div class="neighborhood-item">Vinhais</div>
+                    <div class="neighborhood-item">São Luís II</div>
+                    <div class="neighborhood-item">Cidade Operária</div>
+                    <div class="neighborhood-item">E muito mais...</div>
+                </div>
+                <p>Atendemos toda São Luís e região metropolitana!</p>
+            </div>
+            
+            <div class="nav-btn">
+                <a href="#" onclick="showPage('home'); event.preventDefault();" class="btn btn-primary">
+                    Voltar ao Início <i class="fas fa-arrow-up"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <div class="footer-logo-text">
+                        <h4>Chaveiro Pátio Norte</h4>
+                        <p>São Luís - MA</p>
+                    </div>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="tel:+5598987020510"><i class="fas fa-phone"></i></a>
+                    <a href="https://instagram.com/chaveiropationorte" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5598987020510" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Chaveiro Pátio Norte. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão do WhatsApp -->
+    <a href="https://wa.me/5598987020510" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script>
+        // Navegação entre páginas
+        function showPage(pageId) {
+            // Esconder todas as páginas
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Mostrar a página selecionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Atualizar menu
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Destacar botão ativo
+            event.target.classList.add('active');
+            
+            // Scroll para o topo
+            window.scrollTo(0, 0);
+        }
+
+        // Ativar menu conforme scroll (para versão com scroll)
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-btn');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
