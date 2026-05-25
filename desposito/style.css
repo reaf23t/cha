@@ -1,0 +1,43 @@
+/* Nirserve - Estilos Simplificados */
+
+:root {
+    --bg-dark: #0f172a;
+    --card-bg: #1e293b;
+    --blue-primary: #3b82f6;
+    --emerald-primary: #10b981;
+}
+
+body {
+    background-color: var(--bg-dark);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+/* Transições Suaves */
+.transition-all {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover em botões de remoção */
+button:hover .fa-trash-alt {
+    color: #ef4444;
+}
+
+/* Estilo do Input de Arquivo */
+input[type="file"]::-webkit-file-upload-button {
+    cursor: pointer;
+}
